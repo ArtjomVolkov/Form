@@ -21,6 +21,8 @@ namespace Form1
         PictureBox pilt;
         Button button4;
         Timer aeg;
+        TextBox tekst;
+        CheckBox music,music1;
         public MinuOmaVorm()
         {
             Height = 600; //высота
@@ -38,8 +40,11 @@ namespace Form1
             oksad.Nodes.Add(new TreeNode("Radionupp-Radiobutton"));
             oksad.Nodes.Add(new TreeNode("ProgressBar"));
             oksad.Nodes.Add(new TreeNode("Mouse-button"));
+            oksad.Nodes.Add(new TreeNode("Tekstkast-TextBox"));
+            oksad.Nodes.Add(new TreeNode("OmaVorm-Myform"));
             puu.AfterSelect += Puu_AfterSelect;
             puu.Nodes.Add(oksad);
+            puu.DoubleClick += Tekst_MouseDoubleClick;
             this.Controls.Add(puu);
         }
         
@@ -63,6 +68,20 @@ namespace Form1
                 Checked = false,
                 Text = "LOGITpv21",
                 Location = new Point(silt.Left + silt.Width, 75),
+                Height = 50
+            };
+            music = new CheckBox
+            {
+                Checked = false,
+                Text = "Music 1",
+                Location = new Point(120,100),
+                Height = 50
+            };
+            music1 = new CheckBox
+            {
+                Checked = false,
+                Text = "Music 2",
+                Location = new Point(150, 100),
                 Height = 50
             };
             if (e.Node.Text== "Nupp-Button")
@@ -187,11 +206,47 @@ namespace Form1
                 button4.MouseMove += button4_MouseMove;
                 this.Controls.Add(button4);
             }
+            else if (e.Node.Text == "Tekstkast-TextBox")
+            {
+                tekst = new TextBox
+                {
+                    Font = new Font("Arial",34,FontStyle.Bold),
+                    Width = 150,
+                    Location = new Point(200,360),
+                    Enabled = true
+                };
+                tekst.MouseDoubleClick += Tekst_MouseDoubleClick;
+                this.Controls.Add(tekst);
+            }
+            else if (e.Node.Text == "OmaVorm-Myform")
+            {
+                //music.CheckedChanged += new EventHandler(Music_Changed);
+                //music1.CheckedChanged += new EventHandler(Music_Changed);
+                OmaVorm oma = new OmaVorm("Kuulame muusikat","Vajuta siia","F");
+                oma.ShowDialog();
+            }
+        }
+        //bool t=false;
+        
+        private void Tekst_MouseDoubleClick(object sender, EventArgs e)
+        {
+            if (tekst.Enabled)
+            {
+                tekst.Enabled = false;
+            }
+            else
+            {
+                tekst.Enabled = true;
+            }
         }
 
         private void Aeg_Tick(object sender, EventArgs e)
         {
             riba.PerformStep();
+            BackColor = Color.Red;
+            MessageBox.Show("VIIRUS!", "VIRUS",0,MessageBoxIcon.Warning);
+             
+            
         }
         int x = 300;
         int y = 300;
