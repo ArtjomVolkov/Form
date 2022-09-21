@@ -34,6 +34,7 @@ namespace Form1
                 Size = new System.Drawing.Size(50, 60),
                 BackColor = System.Drawing.Color.DimGray,
             };
+            //dsadasd
             CheckBox failinimi1 = new CheckBox
             {
                 Text = File,
