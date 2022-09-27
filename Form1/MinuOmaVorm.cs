@@ -222,7 +222,7 @@ namespace Form1
             {
                 //music.CheckedChanged += new EventHandler(Music_Changed);
                 //music1.CheckedChanged += new EventHandler(Music_Changed);
-                OmaVorm oma = new OmaVorm("Kuulame muusikat","Vajuta siia","F");
+                OmaVorm oma = new OmaVorm("Kuulame muusikat","Valige muusika","Music");
                 oma.ShowDialog();
             }
         }
