@@ -29,7 +29,7 @@ namespace Form1
             nupp.Click += Nupp_Click;
             Label failinimi = new Label
             {
-                Text = File,
+                Text = String.Format("Кайф ты поймала"),
                 Location = new System.Drawing.Point(50, 150),
                 Size = new System.Drawing.Size(50, 30),
                 BackColor = System.Drawing.Color.DimGray,
@@ -38,7 +38,7 @@ namespace Form1
             //dsadasd
             Label failinimi1 = new Label
             {
-                Text = File,
+                Text = String.Format("Дискотека"),
                 Location = new System.Drawing.Point(50, 200),
                 Size = new System.Drawing.Size(50, 30),
                 BackColor = System.Drawing.Color.DimGray,
@@ -46,7 +46,7 @@ namespace Form1
             failinimi1.Click += Failinimi1_Click;
             Label failinimi4 = new Label
             {
-                Text = File,
+                Text = String.Format("Спят усталые"),
                 Location = new System.Drawing.Point(150, 150),
                 Size = new System.Drawing.Size(50, 30),
                 BackColor = System.Drawing.Color.DimGray,
@@ -54,7 +54,7 @@ namespace Form1
             failinimi4.Click += Failinimi4_Click;
             Label failinimi5 = new Label
             {
-                Text = File,
+                Text = String.Format("Ашот"),
                 Location = new System.Drawing.Point(150, 200),
                 Size = new System.Drawing.Size(50, 30),
                 BackColor = System.Drawing.Color.DimGray,

@@ -42,6 +42,9 @@ namespace Form1
             oksad.Nodes.Add(new TreeNode("Mouse-button"));
             oksad.Nodes.Add(new TreeNode("Tekstkast-TextBox"));
             oksad.Nodes.Add(new TreeNode("OmaVorm-Myform"));
+            oksad.Nodes.Add(new TreeNode("Picture-Viewer"));
+            oksad.Nodes.Add(new TreeNode("Math-Quiz"));
+            oksad.Nodes.Add(new TreeNode("Picture-Game"));
             puu.AfterSelect += Puu_AfterSelect;
             puu.Nodes.Add(oksad);
             puu.DoubleClick += Tekst_MouseDoubleClick;
@@ -224,6 +227,21 @@ namespace Form1
                 //music1.CheckedChanged += new EventHandler(Music_Changed);
                 OmaVorm oma = new OmaVorm("Kuulame muusikat","Valige muusika","Music");
                 oma.ShowDialog();
+            }
+            else if (e.Node.Text == "Picture-Viewer")
+            {
+                Viewer viewer = new Viewer();
+                viewer.ShowDialog();
+            }
+            else if (e.Node.Text == "Math-Quiz")
+            {
+                MathQuiz math = new MathQuiz();
+                math.ShowDialog();
+            }
+            else if (e.Node.Text == "Picture-Game")
+            {
+                PicGame game = new PicGame();
+                game.ShowDialog();
             }
         }
         //bool t=false;
