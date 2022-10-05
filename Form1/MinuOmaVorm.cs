@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows_Forms_rakenduste_loomine;
 
 namespace Form1
 {
@@ -19,16 +21,34 @@ namespace Form1
         ProgressBar riba;
         RadioButton rnupp1,rnupp2,rnupp3,rnupp4;
         PictureBox pilt;
-        Button button4;
+        Button button4,picgame,viewer,quiz;
         Timer aeg;
         TextBox tekst;
         CheckBox music,music1;
         public MinuOmaVorm()
         {
             Height = 600; //высота
-            Width = 900; //ширина
+            Width = 800; //ширина
             Text = "Minu oma vorm koos elementidega"; //название формы
             BackColor = Color.Gray;
+            picgame = new Button();
+            picgame.Text = "Matching game";
+            picgame.Height = 70;
+            picgame.Width = 200;
+            picgame.BackColor = Color.MediumSlateBlue;
+            picgame.Location = new Point(125, 150);
+            viewer = new Button();
+            viewer.Text = "Viewer Picture";
+            viewer.Height = 70;
+            viewer.Width = 200;
+            viewer.BackColor = Color.MediumSlateBlue;
+            viewer.Location = new Point(340, 150);
+            quiz = new Button();
+            quiz.Text = "Math Quiz";
+            quiz.Height = 70;
+            quiz.Width = 200;
+            quiz.BackColor = Color.MediumSlateBlue;
+            quiz.Location = new Point(555, 150);
             puu = new TreeView();
             puu.Dock = DockStyle.Left;
             puu.Location = new Point(0, 0);
@@ -48,9 +68,29 @@ namespace Form1
             puu.AfterSelect += Puu_AfterSelect;
             puu.Nodes.Add(oksad);
             puu.DoubleClick += Tekst_MouseDoubleClick;
+            picgame.Click += startmenu1;
+            viewer.Click += startmenu2;
+            quiz.Click += startmenu3;
             this.Controls.Add(puu);
+            this.Controls.Add(picgame);
+            this.Controls.Add(viewer);
+            this.Controls.Add(quiz);
         }
-        
+        private void startmenu3(object sender, EventArgs e)
+        {
+            MathQuiz f = new MathQuiz();
+            f.ShowDialog();
+        }
+        private void startmenu2(object sender, EventArgs e)
+        {
+            Viewer f = new Viewer();
+            f.ShowDialog();
+        }
+        private void startmenu1(object sender, EventArgs e)
+        {
+            PicGame f = new PicGame();
+            f.ShowDialog();
+        }
         private void Puu_AfterSelect(object sender,TreeViewEventArgs e)
         {
             silt = new Label

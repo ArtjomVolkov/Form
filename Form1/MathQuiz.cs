@@ -33,12 +33,12 @@ namespace Form1
         }
         internal void InitializeComponent()
         {
-            SuspendLayout();
+            SuspendLayout(); //Peatab ajutiselt juhtelemendi paigutusloogika.
             ClientSize = new Size(350, 320);
             Name = "MathQuiz";
             Text = "Maths Quiz Game";
-            ResumeLayout(false);
-            PerformLayout();
+            ResumeLayout(false); //Jätkab tavalist paigutusloogikat.
+            PerformLayout(); //Sunnib juhtelementi rakendama alamjuhtelementidele paigutusloogikat.
             lblNumArrayA = new Label[] { lblNumA1, lblNumA2, lblNumA3, lblNumA4 };
             lblNumArrayB = new Label[] { lblNumB1, lblNumB2, lblNumB3, lblNumB4 };
             lblEqualsArray = new Label[] { lblE1, lblE2, lblE3, lblE4 };
