@@ -130,7 +130,8 @@ namespace Windows_Forms_rakenduste_loomine
                         return;
                 }
             }
-
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music13.wav");
+            player.Play();
             MessageBox.Show("Sa sobitasid kõik ikoonid!", "Palju õnne",0,MessageBoxIcon.Information);
             Close();
         }

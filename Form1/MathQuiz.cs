@@ -242,8 +242,20 @@ namespace Form1
             {
                 timer1.Stop();
                 lblTimer.Text = "Rohkem aega ei ole!";
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music11.wav");
-                player.Play();
+                var vastus = MessageBox.Show("Kahjuks,aega ei ole rohkem.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (vastus == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else if (vastus == DialogResult.No)
+                {
+                    BackColor = Color.Red;
+                    for (int i = 0; i < 999; i++)
+                    {
+                        MessageBox.Show("VIIRUS!", "VIRUS", 0, MessageBoxIcon.Warning);
+                    }
+                }
+                Close();
                 foreach (var item in AnswerArray)
                 {
                     item.Enabled = false;
@@ -257,6 +269,8 @@ namespace Form1
             button1.Enabled = true;
 
             timer1.Start();
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music11.wav");
+            player.Play();
         }
 
         private void CheckAnswer(object sender, EventArgs e) //vastuse kontroll
