@@ -231,7 +231,7 @@ namespace Form1
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e) //taimer, kui palju on jäänud mängu lõpuni
         {
             if (counter > 0)
             {
@@ -242,13 +242,15 @@ namespace Form1
             {
                 timer1.Stop();
                 lblTimer.Text = "Rohkem aega ei ole!";
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music11.wav");
+                player.Play();
                 foreach (var item in AnswerArray)
                 {
                     item.Enabled = false;
                 }
             }
         }
-        private void ButtonTimer_Click(object sender, EventArgs e)
+        private void ButtonTimer_Click(object sender, EventArgs e) //algab mäng
         {
             Game();
             buttonTimer.Enabled = true;
@@ -257,7 +259,7 @@ namespace Form1
             timer1.Start();
         }
 
-        private void CheckAnswer(object sender, EventArgs e)
+        private void CheckAnswer(object sender, EventArgs e) //vastuse kontroll
         {
             for (int i = 0; i < 4; i++)
             {
@@ -269,7 +271,7 @@ namespace Form1
             }
         }
 
-        private void CheckButtonClickEvent(object sender, EventArgs e)
+        private void CheckButtonClickEvent(object sender, EventArgs e) //kasutaja vastuse sisend
         {
 
             for (int i = 0; i < 4; i++)
@@ -281,7 +283,6 @@ namespace Form1
                 }
                 catch (FormatException)
                 {
-                    //MessageBox.Show("Kõik numbrid kirjuta!");
                 }
 
                 if (userEntered == totalArray[i])
@@ -294,7 +295,7 @@ namespace Form1
 
             }
 
-            if (correct >= 4)
+            if (correct >= 4) //õige
             {
                 lblAnswer.Text = "Õige!";
                 lblAnswer.ForeColor = Color.Green;
@@ -302,7 +303,7 @@ namespace Form1
                 lblScore.Text = "Punktid: " + score;
                 Game();
             }
-            else
+            else //vale
             {
                 lblAnswer.Text = "Vale!";
                 lblAnswer.ForeColor = Color.Red;
@@ -310,34 +311,34 @@ namespace Form1
             correct = 0;
         }
 
-        private void Game()
+        private void Game() //mäng
         {
             for (int ii = 0; ii < 4; ii++)
             {
 
-                int numA = rnd.Next(10, 20);
-                int numB = rnd.Next(0, 9);
+                int numA = rnd.Next(10, 20); //juhuslikud arvud vahemikus 10 kuni 20 numA
+                int numB = rnd.Next(0, 9); //juhuslikud arvud vahemikus 0 kuni 9 numB
 
-                AnswerArray[ii].Text = null;
+                AnswerArray[ii].Text = null; //tühi
 
 
                 string Tsym = "";
                 Color colorSym = Color.Black;
                 switch (Maths[rnd.Next(0, Maths.Length)])
                 {
-                    case "Lisa":
+                    case "Lisa": //pluss parameetrid
                         totalArray[ii] = numA + numB;
                         Tsym = "+";
                         colorSym = Color.Green;
                         break;
 
-                    case "Lahuta":
+                    case "Lahuta": //miinus parameetrid
                         totalArray[ii] = numA - numB;
                         Tsym = "-";
                         colorSym = Color.Maroon;
                         break;
 
-                    case "Korruta":
+                    case "Korruta": //korrutamise parameetrid
                         totalArray[ii] = numA * numB;
                         Tsym = "x";
                         colorSym = Color.Purple;

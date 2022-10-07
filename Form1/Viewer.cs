@@ -13,7 +13,7 @@ namespace Form1
         TableLayoutPanel tableLayoutPanel;
         PictureBox picturebox;
         CheckBox checkBox;
-        Button close, backgroundcolor, clear, showapicture;
+        Button close, backgroundcolor, clear, showapicture, picture, colorsa;
         ColorDialog colordialog;
         OpenFileDialog openfiledialog1;
         FlowLayoutPanel flowlayoutpanel;
@@ -58,7 +58,6 @@ namespace Form1
             tableLayoutPanel.SetCellPosition(picturebox, new TableLayoutPanelCellPosition(0, 0));
             tableLayoutPanel.SetColumnSpan(picturebox, 2);
 
-
             checkBox = new CheckBox //venitada pilt
             {
                 AutoSize = true,
@@ -88,6 +87,13 @@ namespace Form1
             this.close.Click += new System.EventHandler(this.close_Click);
             tableLayoutPanel.Controls.Add(close);
 
+            colordialog = new ColorDialog
+            {
+                AllowFullOpen = true,
+                AnyColor = true,
+                SolidColorOnly = false,
+                Color = Color.Red,
+            };
             backgroundcolor = new Button //selja värvi muutmine
             {
                 AutoSize = true,
@@ -133,7 +139,28 @@ namespace Form1
                 Title = "Sirvige tekstifaile",
                 Filter = "JPEG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All file" + "s (*.*)|*.*",
             };
-
+            picture = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(200, 3),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "TTHK",
+                UseVisualStyleBackColor = true,
+            };
+            this.picture.Click += Picture_Click;
+            tableLayoutPanel.Controls.Add(picture);
+            colorsa = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(250, 3),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "Rnd Color",
+                UseVisualStyleBackColor = true,
+            };
+            this.colorsa.Click += Colorsa_Click;
+            tableLayoutPanel.Controls.Add(colorsa);
             Button[] buttons = { clear, showapicture, close, backgroundcolor };
             flowlayoutpanel = new FlowLayoutPanel
             {
@@ -144,6 +171,17 @@ namespace Form1
             flowlayoutpanel.Controls.AddRange(buttons);
             tableLayoutPanel.Controls.Add(flowlayoutpanel, 1, 1);
             this.Controls.Add(tableLayoutPanel);
+        }
+
+        private void Colorsa_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            picturebox.BackColor = Color.FromArgb(r.Next(0, 256), r.Next(0, 256), 0);
+        }
+
+        private void Picture_Click(object sender, EventArgs e)
+        {
+            picturebox.Load("tthk.jpg");
         }
 
         private void clear_Click(object sender, EventArgs e) //kustuta

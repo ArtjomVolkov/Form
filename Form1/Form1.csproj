@@ -100,6 +100,7 @@
   <ItemGroup>
     <Content Include="music.wav" />
     <Content Include="music1.wav" />
+    <Content Include="music11.wav" />
     <Content Include="music3.wav" />
     <Content Include="music4.wav" />
     <Content Include="music5.wav" />
