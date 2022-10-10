@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -118,6 +119,22 @@ namespace Windows_Forms_rakenduste_loomine
             timer1.Stop();
             CheckForWinner();
         }
+        private void AgainGame()
+        {
+            var vastus = MessageBox.Show("Kas sa tahad veel mängida?", "küsimus", MessageBoxButtons.YesNo);
+
+            if (vastus == DialogResult.Yes)
+            {
+                Close();
+                PicGame ns = new PicGame();
+                ns.Show();
+            }
+            else
+            {
+                MessageBox.Show(":(");
+                Close();
+            }
+        }
         private void CheckForWinner()
         {
             foreach (Control control in tableLayoutPanel1.Controls)
@@ -133,7 +150,7 @@ namespace Windows_Forms_rakenduste_loomine
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music13.wav");
             player.Play();
             MessageBox.Show("Sa sobitasid kõik ikoonid!", "Palju õnne",0,MessageBoxIcon.Information);
-            Close();
+            AgainGame();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Form1
     {
         TableLayoutPanel tableLayoutPanel;
         PictureBox picturebox;
-        CheckBox checkBox;
+        CheckBox checkBox,checkBox1;
         Button close, backgroundcolor, clear, showapicture, picture, colorsa;
         ColorDialog colordialog;
         OpenFileDialog openfiledialog1;
@@ -20,7 +20,7 @@ namespace Form1
 
         public Viewer()
         {
-            Size = new System.Drawing.Size(600, 400); //ekraani resolutsioon
+            Size = new System.Drawing.Size(700, 450); //ekraani resolutsioon
             Text = "Pildivaatur";
             tableLayoutPanel = new TableLayoutPanel //ekraan
             {
@@ -71,8 +71,19 @@ namespace Form1
             checkBox.CheckedChanged += new System.EventHandler(checkBox_CheckedChanged);
             tableLayoutPanel.Controls.Add(checkBox, 1, 0);
             this.Controls.Add(tableLayoutPanel);
-
-
+            checkBox1 = new CheckBox //venitada pilt
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(3, 278),
+                Size = new System.Drawing.Size(117, 30),
+                TabIndex = 1,
+                UseVisualStyleBackColor = true,
+                Text = "Zoom",
+                Dock = System.Windows.Forms.DockStyle.Fill,
+            };
+            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
+            tableLayoutPanel.Controls.Add(checkBox1, 1, 1);
+            this.Controls.Add(tableLayoutPanel);
             close = new Button //sulgeb vorm
             {
                 AutoSize = true,
@@ -149,11 +160,11 @@ namespace Form1
                 UseVisualStyleBackColor = true,
             };
             this.picture.Click += Picture_Click;
-            tableLayoutPanel.Controls.Add(picture);
+            tableLayoutPanel.Controls.Add(picture, 1, 3);
             colorsa = new Button
             {
                 AutoSize = true,
-                Location = new System.Drawing.Point(250, 3),
+                Location = new System.Drawing.Point(250, 2),
                 Size = new System.Drawing.Size(102, 23),
                 TabIndex = 0,
                 Text = "Rnd Color",
@@ -161,6 +172,7 @@ namespace Form1
             };
             this.colorsa.Click += Colorsa_Click;
             tableLayoutPanel.Controls.Add(colorsa);
+            tableLayoutPanel.Controls.Add(colorsa, 1, 2);
             Button[] buttons = { clear, showapicture, close, backgroundcolor };
             flowlayoutpanel = new FlowLayoutPanel
             {
@@ -173,6 +185,14 @@ namespace Form1
             this.Controls.Add(tableLayoutPanel);
         }
 
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                picturebox.SizeMode = PictureBoxSizeMode.Zoom;
+            else
+                picturebox.SizeMode = PictureBoxSizeMode.Normal;
+        }
+
         private void Colorsa_Click(object sender, EventArgs e)
         {
             Random r = new Random();
@@ -182,6 +202,18 @@ namespace Form1
         private void Picture_Click(object sender, EventArgs e)
         {
             picturebox.Load("tthk.jpg");
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Viewer
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "Viewer";
+            this.ResumeLayout(false);
+
         }
 
         private void clear_Click(object sender, EventArgs e) //kustuta
