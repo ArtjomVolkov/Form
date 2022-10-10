@@ -1,3 +1,7 @@
+Login:
+
+![pilt](https://user-images.githubusercontent.com/93324363/194852652-cd21124c-a23e-4929-9205-005a209b7be8.png)
+
 Peamenüü näeb välja selline:
 
 ![pilt](https://user-images.githubusercontent.com/93324363/194486845-06b13e89-28c6-4619-8fa1-4a5ab59c5735.png)
