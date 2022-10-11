@@ -1,6 +1,10 @@
-Login:
+<h1>Esmalt lisati sisselogimine:</h1>
 
-![pilt](https://user-images.githubusercontent.com/93324363/194852652-cd21124c-a23e-4929-9205-005a209b7be8.png)
+![image](https://user-images.githubusercontent.com/93324363/195169107-a5310bf0-8864-417c-9355-10230276c171.png)
+
+<h1>Lisatud ka registreerimine:</h1>
+
+![image](https://user-images.githubusercontent.com/93324363/195169361-f8393ab4-0fe5-4725-be53-dc1d608f97a5.png)
 
 Peamenüü näeb välja selline:
 
