@@ -55,6 +55,7 @@ namespace Form1
             // textBox1
             // 
             textBox1 = new TextBox {
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
                 Location = new System.Drawing.Point(84, 24),
                 Multiline = true,
                 Name = "textBox1",
@@ -65,6 +66,7 @@ namespace Form1
             // textBox2
             // 
             textBox2 = new TextBox {
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
                 Location = new System.Drawing.Point(83, 72),
                 Multiline = true,
                 Name = "textBox2",

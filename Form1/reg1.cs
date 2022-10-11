@@ -50,7 +50,8 @@ namespace Form1
             // textBox2
             // 
             textBox2 = new TextBox {
-            Location = new System.Drawing.Point(81, 60),
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Location = new System.Drawing.Point(81, 60),
             Multiline = true,
             Name = "textBox2",
             PasswordChar = '*',
@@ -61,7 +62,8 @@ namespace Form1
             // textBox1
             // 
             textBox1 = new TextBox {
-            Location = new System.Drawing.Point(82, 12),
+                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Location = new System.Drawing.Point(82, 12),
             Multiline = true,
             Name = "textBox1",
             Size = new System.Drawing.Size(165, 31),
