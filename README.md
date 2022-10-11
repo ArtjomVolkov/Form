@@ -4,7 +4,7 @@
 
 <h1>Lisatud ka registreerimine:</h1>
 
-![image](https://user-images.githubusercontent.com/93324363/195172859-1f953120-bf9d-41c8-8417-5c50b7505093.png)
+![image](https://user-images.githubusercontent.com/93324363/195172992-f09a84d9-8123-4f90-9e68-60fdd07ee6d2.png)
 
 <h1>Andmed salvestatakse kausta:</h1>
 
