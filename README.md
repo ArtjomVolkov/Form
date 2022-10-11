@@ -28,17 +28,17 @@ Vaataja pilt näeb välja selline:
 ![image](https://user-images.githubusercontent.com/93324363/195170687-70d584d7-fd21-4a9b-8deb-bbb1c76b559b.png)
 
 <h1>Matemaatikaviktoriinis / MathQuiz</h1>
-1.Matemaatikaviktoriinis tahan lisada, millal on muusika lisamise aeg täis, et inimene kuuleks, et aeg on möödas.<br>
-2.Lisas ka jah või ei teatise lõppu. Kui inimene klõpsab nupul YES, aken sulgub. Kui klõpsate NO, muutub taust punaseks ja viirus hüppab välja.<br>
-3.lisatud kuupäev tänane aeg.<br>
+1. Matemaatikaviktoriinis tahan lisada, millal on muusika lisamise aeg täis, et inimene kuuleks, et aeg on möödas.<br>
+2. Lisas ka jah või ei teatise lõppu. Kui inimene klõpsab nupul YES, aken sulgub. Kui klõpsate NO, muutub taust punaseks ja viirus hüppab välja.<br>
+3. Lisatud kuupäev tänane aeg.<br>
 MathQuiz näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195171729-e4039ff3-6454-42b2-86f7-db5fab67b842.png)
 
 
 <h1>Mathcing Game</h1>
-1.Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.<br>
-2.lisatud mängu lõpus on kirjas, et oled kõik kokku kogunud ja siis küsitakse, kas tahad uuesti mängida jah või ei. Kui kasutaja valib jah, algab mäng uuesti. Kui ei, siis mäng on suletud.<br>
+1. Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.<br>
+2. Lisatud mängu lõpus on kirjas, et oled kõik kokku kogunud ja siis küsitakse, kas tahad uuesti mängida jah või ei. Kui kasutaja valib jah, algab mäng uuesti. Kui ei, siis mäng on suletud.<br>
 Mathcing Game näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195172222-a2f31400-d319-4182-a104-036400f96005.png)
