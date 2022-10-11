@@ -22,20 +22,24 @@ andmed salvestatakse Form\Form1\bin\Debug:
 1. Vaatepilti tahan lisada, et saaksin lisada pildi tthk.jpg. <br>
 2. Samuti on nupul juhuslik taustavärv. <br>
 3. Lisatud zoom checkbox.<br>
-5. Ja lisas slaidiseansi kahe pildiga, mida saate sisse ja välja lülitada.<br>
+4. Ja lisas slaidiseansi kahe pildiga, mida saate sisse ja välja lülitada.<br>
 Vaataja pilt näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195170687-70d584d7-fd21-4a9b-8deb-bbb1c76b559b.png)
 
-MathQuiz - Matemaatikaviktoriinis tahan lisada, millal on muusika lisamise aeg täis, et inimene kuuleks, et aeg on möödas.Lisas ka jah või ei teatise lõppu. 
-Kui inimene klõpsab nupul YES, aken sulgub. Kui klõpsate NO, muutub taust punaseks ja viirus hüppab välja.
+<h1>Matemaatikaviktoriinis / MathQuiz</h1>
+1.Matemaatikaviktoriinis tahan lisada, millal on muusika lisamise aeg täis, et inimene kuuleks, et aeg on möödas.<br>
+2.Lisas ka jah või ei teatise lõppu. Kui inimene klõpsab nupul YES, aken sulgub. Kui klõpsate NO, muutub taust punaseks ja viirus hüppab välja.<br>
+3.lisatud kuupäev tänane aeg.<br>
 MathQuiz näeb välja selline:
 
-![pilt](https://user-images.githubusercontent.com/93324363/194487274-39d67e81-7502-4206-bccf-03beefb8a511.png)
+![image](https://user-images.githubusercontent.com/93324363/195171729-e4039ff3-6454-42b2-86f7-db5fab67b842.png)
 
 
-Mathcing Game - Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.
+<h1>Mathcing Game</h1>
+1.Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.
+2.lisatud mängu lõpus on kirjas, et oled kõik kokku kogunud ja siis küsitakse, kas tahad uuesti mängida jah või ei. Kui kasutaja valib jah, algab mäng uuesti. Kui ei, siis mäng on suletud.
 Mathcing Game näeb välja selline:
 
-![pilt](https://user-images.githubusercontent.com/93324363/194487385-571cf8ff-8ca0-4d2f-a8ce-b8628d9f3866.png)
+![image](https://user-images.githubusercontent.com/93324363/195172222-a2f31400-d319-4182-a104-036400f96005.png)
 
