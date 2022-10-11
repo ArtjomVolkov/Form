@@ -19,10 +19,10 @@ andmed salvestatakse Form\Form1\bin\Debug:
 ![pilt](https://user-images.githubusercontent.com/93324363/194486845-06b13e89-28c6-4619-8fa1-4a5ab59c5735.png)
 
 <h1>Vaataja pilt</h1>
-1. Vaatepilti tahan lisada, et saaksin lisada pildi tthk.jpg. 
-2. Samuti on nupul juhuslik taustavärv.
-3. Lisatud zoom checkbox.
-4. Ja lisas slaidiseansi kahe pildiga, mida saate sisse ja välja lülitada.
+1. Vaatepilti tahan lisada, et saaksin lisada pildi tthk.jpg. <br>
+2. Samuti on nupul juhuslik taustavärv. <br>
+3. Lisatud zoom checkbox.<br>
+5. Ja lisas slaidiseansi kahe pildiga, mida saate sisse ja välja lülitada.<br>
 Vaataja pilt näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195170687-70d584d7-fd21-4a9b-8deb-bbb1c76b559b.png)
