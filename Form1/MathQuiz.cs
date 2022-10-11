@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows_Forms_rakenduste_loomine;
 
 namespace Form1
 {
@@ -16,10 +17,10 @@ namespace Form1
         int total1, total2, total3, total4, score, correct;
         private int counter = 60;
         private Timer timer1;
-        private Label lblScore;
+        private Label lblScore,lbldate;
         private Label lblTimer, lblSym1, lblSym2, lblSym3, lblSym4, lblNumB1, lblNumB2, lblNumB3, lblNumB4, lblE1, lblE2, lblE3, lblE4, lblAnswer, lblNumA1, lblNumA2, lblNumA3, lblNumA4;
         private TextBox Answer1, Answer2, Answer3, Answer4;
-        private Button button1, buttonTimer;
+        private Button button1, buttonTimer,showdate;
         Label[] labelSymArray = { }, lblNumArrayA = { }, lblNumArrayB = { }, lblEqualsArray = { };
         TextBox[] AnswerArray = { };
         int[] totalArray = { };
@@ -34,7 +35,7 @@ namespace Form1
         internal void InitializeComponent()
         {
             SuspendLayout(); //Peatab ajutiselt juhtelemendi paigutusloogika.
-            ClientSize = new Size(350, 320);
+            ClientSize = new Size(500, 400);
             Name = "MathQuiz";
             Text = "Maths Quiz Game";
             ResumeLayout(false); //Jätkab tavalist paigutusloogikat.
@@ -186,16 +187,28 @@ namespace Form1
                 Name = "lblAnswer",
                 Size = new Size(50, 15),
                 TabIndex = 5,
-                Text = "--:--:--",
+                Text = "00:00:00",
             };
             timer1 = new Timer
             {
                 Interval = 1000
             };
 
+            lbldate = new Label
+            {
+                AutoSize = true,
+                Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                Name = "lblDate",
+                Location = new Point(400, 220),
+                Size = new Size(85, 29),
+                Text = "Kuupäev",
+
+            };
+
+
 
             Controls.Add(tableLayoutPanel1);
-
+            tableLayoutPanel1.Controls.Add(lbldate);
             timer1.Tick += timer1_Tick;
             buttonTimer.Click += ButtonTimer_Click;
             AnswerArray[0].TextChanged += new EventHandler(CheckAnswer);
@@ -203,6 +216,7 @@ namespace Form1
             AnswerArray[2].TextChanged += new EventHandler(CheckAnswer);
             AnswerArray[3].TextChanged += new EventHandler(CheckAnswer);
             button1.Click += new EventHandler(CheckButtonClickEvent);
+            
             tableLayoutPanel1.Controls.Add(lblNumArrayA[0], 0, 0);
             tableLayoutPanel1.Controls.Add(lblNumArrayA[1], 0, 1);
             tableLayoutPanel1.Controls.Add(lblNumArrayA[2], 0, 2);
@@ -228,6 +242,9 @@ namespace Form1
             tableLayoutPanel1.Controls.Add(button1, 4, 4);
             tableLayoutPanel1.Controls.Add(buttonTimer, 4, 5);
             tableLayoutPanel1.Controls.Add(lblTimer);
+            
+
+
 
         }
 
@@ -246,6 +263,8 @@ namespace Form1
                 if (vastus == DialogResult.Yes)
                 {
                     this.Close();
+                    MathQuiz ns = new MathQuiz();
+                    ns.Show();
                 }
                 else if (vastus == DialogResult.No)
                 {
@@ -265,6 +284,7 @@ namespace Form1
         private void ButtonTimer_Click(object sender, EventArgs e) //algab mäng
         {
             Game();
+            lbldate.Text = DateTime.Now.ToString();
             buttonTimer.Enabled = true;
             button1.Enabled = true;
 

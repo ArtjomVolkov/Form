@@ -13,14 +13,17 @@ namespace Form1
         TableLayoutPanel tableLayoutPanel;
         PictureBox picturebox;
         CheckBox checkBox,checkBox1;
-        Button close, backgroundcolor, clear, showapicture, picture, colorsa;
+        Button close, backgroundcolor, clear, showapicture, picture, colorsa,start,stop;
         ColorDialog colordialog;
         OpenFileDialog openfiledialog1;
-        FlowLayoutPanel flowlayoutpanel;
+        FlowLayoutPanel flowlayoutpanel,flowlayoutpanel1;
+        Timer timer1;
+        int imgNum = 1;
+        FolderBrowserDialog fbd;
 
         public Viewer()
         {
-            Size = new System.Drawing.Size(700, 450); //ekraani resolutsioon
+            Size = new System.Drawing.Size(700, 460); //ekraani resolutsioon
             Text = "Pildivaatur";
             tableLayoutPanel = new TableLayoutPanel //ekraan
             {
@@ -44,7 +47,7 @@ namespace Form1
 
             this.Controls.Add(tableLayoutPanel);
 
-
+            
             picturebox = new System.Windows.Forms.PictureBox //ekraan, kus pilti kuvatakse
             {
                 BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D,
@@ -160,7 +163,7 @@ namespace Form1
                 UseVisualStyleBackColor = true,
             };
             this.picture.Click += Picture_Click;
-            tableLayoutPanel.Controls.Add(picture, 1, 3);
+            tableLayoutPanel.Controls.Add(picture, 2, 3);
             colorsa = new Button
             {
                 AutoSize = true,
@@ -172,7 +175,7 @@ namespace Form1
             };
             this.colorsa.Click += Colorsa_Click;
             tableLayoutPanel.Controls.Add(colorsa);
-            tableLayoutPanel.Controls.Add(colorsa, 1, 2);
+            tableLayoutPanel.Controls.Add(colorsa, 2, 2);
             Button[] buttons = { clear, showapicture, close, backgroundcolor };
             flowlayoutpanel = new FlowLayoutPanel
             {
@@ -183,6 +186,66 @@ namespace Form1
             flowlayoutpanel.Controls.AddRange(buttons);
             tableLayoutPanel.Controls.Add(flowlayoutpanel, 1, 1);
             this.Controls.Add(tableLayoutPanel);
+            start = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(250, 2),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "SlideShow start",
+                UseVisualStyleBackColor = true,
+            };
+            this.start.Click += Start_Click;
+            tableLayoutPanel.Controls.Add(start);
+            tableLayoutPanel.Controls.Add(start, 2, 4);
+            stop = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(250, 2),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "SlideShow stop",
+                UseVisualStyleBackColor = true,
+            };
+            this.stop.Click += Stop_Click;
+            tableLayoutPanel.Controls.Add(stop);
+            tableLayoutPanel.Controls.Add(stop, 2, 5);
+            Button[] buttonsi = { colorsa,start,stop,picture };
+            flowlayoutpanel1 = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                FlowDirection = FlowDirection.LeftToRight,
+                Size = new Size(200, 50),
+            };
+            flowlayoutpanel1.Controls.AddRange(buttonsi);
+            tableLayoutPanel.Controls.Add(flowlayoutpanel1, 2, 1);
+            this.Controls.Add(tableLayoutPanel);
+            
+            timer1 = new Timer
+            {
+                Interval = 1000,
+            };
+            timer1.Tick += timer1_Tick;
+        }
+
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            picturebox.Image = null;
+        }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            fbd = new FolderBrowserDialog();
+            fbd.ShowDialog();
+            timer1.Enabled = true;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            picturebox.ImageLocation = string.Format(fbd.SelectedPath + "\\img{0}.jpg", imgNum);
+            imgNum++;
+            if (imgNum == 3)
+                imgNum = 1;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
