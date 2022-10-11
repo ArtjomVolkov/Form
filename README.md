@@ -39,6 +39,8 @@ MathQuiz näeb välja selline:
 <h1>Mathcing Game</h1>
 1. Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.<br>
 2. Lisatud mängu lõpus on kirjas, et oled kõik kokku kogunud ja siis küsitakse, kas tahad uuesti mängida jah või ei. Kui kasutaja valib jah, algab mäng uuesti. Kui ei, siis mäng on suletud.<br>
+3. Arendamisel ![image](https://user-images.githubusercontent.com/93324363/195173359-0c53b55a-4e59-492b-bf4b-2ffa6564284f.png)
+
 Mathcing Game näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195172222-a2f31400-d319-4182-a104-036400f96005.png)
