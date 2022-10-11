@@ -8,7 +8,7 @@
 
 <h1>Andmed salvestatakse kausta:</h1>
 
-![image](https://user-images.githubusercontent.com/93324363/195169825-83ef1737-98ff-4f9f-b848-c19e83a235c6.png)
+![image](https://user-images.githubusercontent.com/93324363/195172898-76f68659-96ab-4f06-b7c9-d55fe356228d.png)
 
 andmed salvestatakse Form\Form1\bin\Debug:
 
