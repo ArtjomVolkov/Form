@@ -18,6 +18,8 @@ namespace Windows_Forms_rakenduste_loomine
         Label esimeneClicked = null;
         Label teineClicked = null;
         Timer timer1 = new Timer { Interval = 750 };
+        Timer timer2 = new Timer { Interval = 40, Enabled = true, };
+        Timer timer3 = new Timer { Interval = 40, Enabled = false, };
         List<string> icons = new List<string>()
         {
             "a", "a", "c", "c", "q", "q", "x", "x",
@@ -25,6 +27,8 @@ namespace Windows_Forms_rakenduste_loomine
         };
         public PicGame()
         {
+            timer3.Tick += timer3_Tick; //taimer
+            timer2.Tick += timer2_Tick; //taimer
             CenterToScreen(); //ekraani keskel
             timer1.Tick += timer1_Tick; //taimer
             Text = "Matching game";
@@ -74,8 +78,6 @@ namespace Windows_Forms_rakenduste_loomine
             }
 
         }
-
-
         private void label1_Click(object sender, EventArgs e)
         {
             if (timer1.Enabled == true)
@@ -100,7 +102,23 @@ namespace Windows_Forms_rakenduste_loomine
                 timer1.Start();
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (Opacity==0)
+            {
+                this.Close();
+            }
+            Opacity -= .2;
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (Opacity==1)
+            {
+                timer2.Stop();
+            }
+            Opacity += .2;
+        }
+            private void timer1_Tick(object sender, EventArgs e)
         {
 
             if (esimeneClicked.Text == teineClicked.Text)
@@ -124,6 +142,7 @@ namespace Windows_Forms_rakenduste_loomine
 
             if (vastus == DialogResult.Yes)
             {
+                timer3.Start();
                 Close();
                 PicGame ns = new PicGame();
                 ns.Show();
