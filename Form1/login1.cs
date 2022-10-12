@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace Form1
         private TextBox textBox2;
         private Label label1;
         private Label label2;
-
+        
         public login1()
         {
             Size = new System.Drawing.Size(292, 200); //ekraani resolutsioon
@@ -109,6 +110,10 @@ namespace Form1
             this.PerformLayout();
 
         }
+        public void StartForm()
+        {
+            Application.Run(new SplashScreen());
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -130,6 +135,11 @@ namespace Form1
 
                 if (kasutajanimi == textBox1.Text && parool==textBox2.Text)
                 {
+                    Hide();
+                    Thread t = new Thread(new ThreadStart(StartForm));
+                    t.Start();
+                    Thread.Sleep(5000);
+                    t.Abort();
                     MinuOmaVorm minuOmaVorm = new MinuOmaVorm();
                     minuOmaVorm.Show();
                     Hide();

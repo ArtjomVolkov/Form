@@ -37,7 +37,6 @@ namespace Windows_Forms_rakenduste_loomine
                 RowCount = 4,
                 ColumnCount = 4
             };
-
             this.Controls.Add(tableLayoutPanel1);
             for (int i = 0; i < 4; i++)
             {

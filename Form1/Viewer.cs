@@ -13,7 +13,7 @@ namespace Form1
         TableLayoutPanel tableLayoutPanel;
         PictureBox picturebox;
         CheckBox checkBox,checkBox1;
-        Button close, backgroundcolor, clear, showapicture, picture, colorsa,start,stop;
+        Button close, backgroundcolor, clear, showapicture, picture, colorsa,start,stop,invert;
         ColorDialog colordialog;
         OpenFileDialog openfiledialog1;
         FlowLayoutPanel flowlayoutpanel,flowlayoutpanel1;
@@ -198,6 +198,18 @@ namespace Form1
             this.start.Click += Start_Click;
             tableLayoutPanel.Controls.Add(start);
             tableLayoutPanel.Controls.Add(start, 2, 4);
+            invert = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(250, 2),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "Invert",
+                UseVisualStyleBackColor = true,
+            };
+            this.invert.Click += Button1_Click;
+            
+
             stop = new Button
             {
                 AutoSize = true,
@@ -210,7 +222,7 @@ namespace Form1
             this.stop.Click += Stop_Click;
             tableLayoutPanel.Controls.Add(stop);
             tableLayoutPanel.Controls.Add(stop, 2, 5);
-            Button[] buttonsi = { colorsa,start,stop,picture };
+            Button[] buttonsi = { colorsa,start,stop,picture,invert };
             flowlayoutpanel1 = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -220,14 +232,32 @@ namespace Form1
             flowlayoutpanel1.Controls.AddRange(buttonsi);
             tableLayoutPanel.Controls.Add(flowlayoutpanel1, 2, 1);
             this.Controls.Add(tableLayoutPanel);
-            
+            tableLayoutPanel.Controls.Add(invert);
+            tableLayoutPanel.Controls.Add(invert, 2, 6);
             timer1 = new Timer
             {
                 Interval = 1000,
             };
             timer1.Tick += timer1_Tick;
         }
+        private void Button1_Click(object sender, System.EventArgs e)
+        {
+            Bitmap pic = new Bitmap(picturebox.Image);
+            for (int y = 0; (y
+                        <= (pic.Height - 1)); y++)
+            {
+                for (int x = 0; (x
+                            <= (pic.Width - 1)); x++)
+                {
+                    Color inv = pic.GetPixel(x, y);
+                    inv = Color.FromArgb(255, (255 - inv.R), (255 - inv.G), (255 - inv.B));
+                    pic.SetPixel(x, y, inv);
+                    picturebox.Image = pic;
+                }
 
+            }
+
+        }
         private void Stop_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
@@ -264,19 +294,7 @@ namespace Form1
 
         private void Picture_Click(object sender, EventArgs e)
         {
-            picturebox.Load("tthk.jpg");
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // Viewer
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "Viewer";
-            this.ResumeLayout(false);
-
+            picturebox.ImageLocation= @"..\..\tthk.jpg";
         }
 
         private void clear_Click(object sender, EventArgs e) //kustuta
