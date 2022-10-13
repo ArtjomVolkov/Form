@@ -11,47 +11,45 @@ using System.Windows.Forms;
 
 namespace Windows_Forms_rakenduste_loomine
 {
-    public partial class PicGame : Form
+    public partial class PicGame3 : Form
     {
         Random rnd = new Random();
         TableLayoutPanel tableLayoutPanel1;
         Label esimeneClicked = null;
         Label teineClicked = null;
         Timer timer1 = new Timer { Interval = 750 };
-        Timer timer2 = new Timer { Interval = 40, Enabled = true, };
-        Timer timer3 = new Timer { Interval = 40, Enabled = false, };
         List<string> icons = new List<string>()
         {
-            "a", "a", "c", "c", "q", "q", "x", "x",
-            "l", "l", "f", "f", "v", "v", "w", "w"
+            "1", "1", "2", "2", "3", "3", "4", "4","5", "5", "6", "6", "7", "7", "8", "8","9", "9",
+            "0", "0", "+", "+", "q", "q", "w", "w","e", "e", "r", "r", "t", "t", "y", "y","u", "u",
+            "a", "a", "c", "c", "g", "g", "x", "x","p", "p", "j", "j", "n", "n", "b", "b","k", "k",
+            "m", "m", "h", "h", "d", "d", "v", "v","l", "l",
         };
-        public PicGame()
+        public PicGame3()
         {
-            timer3.Tick += timer3_Tick; //taimer
-            timer2.Tick += timer2_Tick; //taimer
             CenterToScreen(); //ekraani keskel
             timer1.Tick += timer1_Tick; //taimer
             Text = "Matching game";
-            ClientSize = new Size(455, 455);
+            ClientSize = new Size(800, 800);
             tableLayoutPanel1 = new TableLayoutPanel
             {
                 BackColor = System.Drawing.Color.Cornsilk,
                 Dock = System.Windows.Forms.DockStyle.Fill,
                 CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset,
-                RowCount = 4,
-                ColumnCount = 4
+                RowCount = 8,
+                ColumnCount = 8
             };
             this.Controls.Add(tableLayoutPanel1);
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
                 tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
                 tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 8; j++)
                 {
 
                     Label lbl1 = new Label
                     {
-                        BackColor = Color.Blue,
+                        BackColor = Color.DarkRed,
                         AutoSize = false,
                         Dock = DockStyle.Fill,
                         TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
@@ -102,23 +100,7 @@ namespace Windows_Forms_rakenduste_loomine
                 timer1.Start();
             }
         }
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            if (Opacity==0)
-            {
-                this.Close();
-            }
-            Opacity -= .2;
-        }
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (Opacity==1)
-            {
-                timer2.Stop();
-            }
-            Opacity += .2;
-        }
-            private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
 
             if (esimeneClicked.Text == teineClicked.Text)
@@ -138,18 +120,17 @@ namespace Windows_Forms_rakenduste_loomine
         }
         private void AgainGame()
         {
-            var vastus = MessageBox.Show("Kas sa tahad veel mängida? !!HARD!!", "küsimus", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            var vastus = MessageBox.Show("Kas sa tahad veel mängida? !!EASY!!", "küsimus", MessageBoxButtons.YesNo);
 
             if (vastus == DialogResult.Yes)
             {
-                timer3.Start();
                 Close();
-                PicGame2 ns = new PicGame2();
+                PicGame ns = new PicGame();
                 ns.Show();
             }
             else
             {
-                MessageBox.Show("Okey! :(");
+                MessageBox.Show(":(");
                 Close();
             }
         }
@@ -167,7 +148,7 @@ namespace Windows_Forms_rakenduste_loomine
             }
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music13.wav");
             player.Play();
-            MessageBox.Show("Sa sobitasid kõik ikoonid!", "Palju õnne",0,MessageBoxIcon.Information);
+            MessageBox.Show("Sa sobitasid kõik ikoonid!", "Palju õnne", 0, MessageBoxIcon.Information);
             AgainGame();
         }
     }

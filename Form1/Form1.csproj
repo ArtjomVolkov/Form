@@ -49,6 +49,12 @@
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PicGame2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PicGame3.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reg1.cs">
       <SubType>Form</SubType>
     </Compile>

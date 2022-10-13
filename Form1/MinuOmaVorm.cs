@@ -21,7 +21,7 @@ namespace Form1
         ProgressBar riba;
         RadioButton rnupp1,rnupp2,rnupp3,rnupp4;
         PictureBox pilt;
-        Button button4,picgame,viewer,quiz;
+        Button button4,picgame,viewer,quiz,hard,veryhard;
         Timer aeg;
         TextBox tekst;
         CheckBox music,music1;
@@ -32,11 +32,23 @@ namespace Form1
             Text = "Minu oma vorm koos elementidega"; //название формы
             BackColor = Color.Gray;
             picgame = new Button();
-            picgame.Text = "Matching game";
+            picgame.Text = "Matching game EASY LEVEL";
             picgame.Height = 70;
             picgame.Width = 200;
             picgame.BackColor = Color.MediumSlateBlue;
             picgame.Location = new Point(125, 150);
+            hard = new Button();
+            hard.Text = "Matching game HARD LEVEL";
+            hard.Height = 70;
+            hard.Width = 200;
+            hard.BackColor = Color.MediumSlateBlue;
+            hard.Location = new Point(125, 230);
+            veryhard = new Button();
+            veryhard.Text = "Matching game VERY HARD LEVEL";
+            veryhard.Height = 70;
+            veryhard.Width = 200;
+            veryhard.BackColor = Color.MediumSlateBlue;
+            veryhard.Location = new Point(125, 310);
             viewer = new Button();
             viewer.Text = "Viewer Picture";
             viewer.Height = 70;
@@ -65,17 +77,36 @@ namespace Form1
             oksad.Nodes.Add(new TreeNode("Picture-Viewer"));
             oksad.Nodes.Add(new TreeNode("Math-Quiz"));
             oksad.Nodes.Add(new TreeNode("Picture-Game"));
+            oksad.Nodes.Add(new TreeNode("Picture-Game2"));
+            oksad.Nodes.Add(new TreeNode("Picture-Game3"));
             puu.AfterSelect += Puu_AfterSelect;
             puu.Nodes.Add(oksad);
             puu.DoubleClick += Tekst_MouseDoubleClick;
             picgame.Click += startmenu1;
             viewer.Click += startmenu2;
             quiz.Click += startmenu3;
+            hard.Click += Hard_Click;
+            veryhard.Click += Veryhard_Click;
             this.Controls.Add(puu);
             this.Controls.Add(picgame);
+            this.Controls.Add(veryhard);
+            this.Controls.Add(hard);
             this.Controls.Add(viewer);
             this.Controls.Add(quiz);
         }
+
+        private void Veryhard_Click(object sender, EventArgs e)
+        {
+            PicGame3 f = new PicGame3();
+            f.ShowDialog();
+        }
+
+        private void Hard_Click(object sender, EventArgs e)
+        {
+            PicGame2 f = new PicGame2();
+            f.ShowDialog();
+        }
+
         private void startmenu3(object sender, EventArgs e)
         {
             MathQuiz f = new MathQuiz();
@@ -282,6 +313,16 @@ namespace Form1
             {
                 PicGame game = new PicGame();
                 game.ShowDialog();
+            }
+            else if (e.Node.Text == "Picture-Game2")
+            {
+                PicGame2 game2 = new PicGame2();
+                game2.ShowDialog();
+            }
+            else if (e.Node.Text == "Picture-Game3")
+            {
+                PicGame3 game3 = new PicGame3();
+                game3.ShowDialog();
             }
         }
         //bool t=false;
