@@ -16,7 +16,8 @@ andmed salvestatakse Form\Form1\bin\Debug:
 
 <h1>Peamenüü näeb välja selline:</h1>
 
-![pilt](https://user-images.githubusercontent.com/93324363/194486845-06b13e89-28c6-4619-8fa1-4a5ab59c5735.png)
+![image](https://user-images.githubusercontent.com/93324363/195640761-dc7a2568-194c-4afd-b036-3ed152a81d72.png)
+
 
 <h1>Vaataja pilt</h1>
 1. 👨🏼‍🔧Vaatepilti tahan lisada, et saaksin lisada pildi tthk.jpg. <br>
@@ -40,9 +41,17 @@ MathQuiz näeb välja selline:
 <h1>Mathcing Game</h1>
 1. 👨🏼‍🔧Mathcing Game muusika lisamiseks mängu lõpus, kui olete läbinud.<br>
 2. 👨🏼‍🔧Lisatud mängu lõpus on kirjas, et oled kõik kokku kogunud ja siis küsitakse, kas tahad uuesti mängida jah või ei. Kui kasutaja valib jah, algab mäng uuesti. Kui ei, siis mäng on suletud.<br>
-3. 💱Arendamisel💱
+3. 👨🏼‍🔧Lisatud tasemed mängule EASY, HARD ja VERY HARD.
 
-Mathcing Game näeb välja selline:
+Mathcing Game EASY LEVEL näeb välja selline:
 
 ![image](https://user-images.githubusercontent.com/93324363/195172222-a2f31400-d319-4182-a104-036400f96005.png)
+
+Mathcing Game HARD LEVEL näeb välja selline:
+
+![image](https://user-images.githubusercontent.com/93324363/195641427-d5822274-fa4e-4f73-ae4a-e1434c3bffdf.png)
+
+Mathcing Game VERY HARD LEVEL näeb välja selline:
+
+![image](https://user-images.githubusercontent.com/93324363/195641530-2b29105b-d240-48b4-a760-d05cff07142f.png)
 
