@@ -112,10 +112,10 @@ namespace Form1
         }
         public void StartForm()
         {
-            Application.Run(new SplashScreen());
+            Application.Run(new SplashScreen()); //vormi laadimine algab
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //avab registreerimise
         {
             
             reg1 register = new reg1();
@@ -124,34 +124,34 @@ namespace Form1
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //kontrollib, kas selline kasutaja on olemas
         {
             try
             {
-                var sr = new System.IO.StreamReader("@..\\..\\" + textBox1.Text + "\\login.ID");
-                kasutajanimi = sr.ReadLine();
-                parool = sr.ReadLine();
-                sr.Close();
+                var sr = new System.IO.StreamReader("@..\\..\\" + textBox1.Text + "\\login"); //otsib isa nimega kasutajat
+                kasutajanimi = sr.ReadLine(); //loeb kasutajanimi
+                parool = sr.ReadLine(); //loeb parool
+                sr.Close(); //kinnita
 
-                if (kasutajanimi == textBox1.Text && parool==textBox2.Text)
+                if (kasutajanimi == textBox1.Text && parool==textBox2.Text) //kontrolli, kas kõik sobib
                 {
                     Hide();
                     Thread t = new Thread(new ThreadStart(StartForm));
                     t.Start();
                     Thread.Sleep(5000);
                     t.Abort();
-                    MinuOmaVorm minuOmaVorm = new MinuOmaVorm();
+                    MinuOmaVorm minuOmaVorm = new MinuOmaVorm(); //avab pea form
                     minuOmaVorm.Show();
                     Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Vale", "Vale!",0,MessageBoxIcon.Stop);
+                    MessageBox.Show("Vale parool või kasutajanimi!", "Vale!",0,MessageBoxIcon.Stop); //viga vigased andmed
                 }
             }
             catch(System.IO.DirectoryNotFoundException ex)
             {
-                MessageBox.Show("Vale parool või kasutajanimi!", "Vale!", 0, MessageBoxIcon.Stop);
+                MessageBox.Show("Vale parool või kasutajanimi!", "Vale!", 0, MessageBoxIcon.Stop); //viga vigased andmed
             }
         }
     }

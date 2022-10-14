@@ -11,12 +11,9 @@ namespace Form1
 {
     public class reg1 : Form
     {
-        private Label label2;
-        private Label label1;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button2;
-        private Button button1;
+        private Label label2,label1;
+        private TextBox textBox2,textBox1;
+        private Button button2,button1;
 
         public reg1()
         {
@@ -113,7 +110,7 @@ namespace Form1
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
-            login1 login = new login1();
+            login1 login = new login1(); //avab sisselogimisvormi
             login.Show();
         }
 
@@ -121,21 +118,21 @@ namespace Form1
         {
             try
             {
-                var sw = new System.IO.StreamWriter("@..\\..\\" + textBox1.Text + "\\login.ID");
-                sw.Write(textBox1.Text + "\n" + textBox2.Text);
+                var sw = new System.IO.StreamWriter("@..\\..\\" + textBox1.Text + "\\login"); //kaust luuakse kasutajanimi
+                sw.Write(textBox1.Text + "\n" + textBox2.Text); //kirjutatud kasutajanimi ja parool
                 sw.Close();
                 Close();
-                login1 login = new login1();
+                login1 login = new login1(); //avab sisselogimisvormi
                 login.Show();
             }
             catch (System.IO.DirectoryNotFoundException ex)
             {
                 System.IO.Directory.CreateDirectory("@..\\..\\" + textBox1.Text);
-                var sw = new System.IO.StreamWriter("@..\\..\\" + textBox1.Text + "\\login.ID");
-                sw.Write(textBox1.Text + "\n" + textBox2.Text);
+                var sw = new System.IO.StreamWriter("@..\\..\\" + textBox1.Text + "\\login");//kaust luuakse kasutajanimi
+                sw.Write(textBox1.Text + "\n" + textBox2.Text); //kirjutatud kasutajanimi ja parool
                 sw.Close();
                 Close();
-                login1 login = new login1();
+                login1 login = new login1(); //avab sisselogimisvormi
                 login.Show();
             }
         }

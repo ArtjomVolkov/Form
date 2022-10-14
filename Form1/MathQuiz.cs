@@ -12,8 +12,8 @@ namespace Form1
     public class MathQuiz : Form
     {
         public event EventHandler Tick;
-        Random rnd = new Random();
-        string[] Maths = { "Lisa", "Lahuta", "Korruta" };
+        Random rnd = new Random(); //random
+        string[] Maths = { "Lisa", "Lahuta", "Korruta" }; //+;-;*
         int total1, total2, total3, total4, score, correct;
         private int counter = 60;
         private Timer timer1;
@@ -35,7 +35,7 @@ namespace Form1
         internal void InitializeComponent()
         {
             SuspendLayout(); //Peatab ajutiselt juhtelemendi paigutusloogika.
-            ClientSize = new Size(500, 400);
+            ClientSize = new Size(500, 270);
             Name = "MathQuiz";
             Text = "Maths Quiz Game";
             ResumeLayout(false); //Jätkab tavalist paigutusloogikat.
@@ -50,7 +50,7 @@ namespace Form1
             int i = 0;
 
 
-            tableLayoutPanel1 = new TableLayoutPanel
+            tableLayoutPanel1 = new TableLayoutPanel //näidete paneel
             {
                 ColumnCount = 5,
                 RowCount = 5,
@@ -61,10 +61,10 @@ namespace Form1
                 Location = new Point(0, 0),
             };
 
-            lblScore = new Label
+            lblScore = new Label //skoor
             {
                 AutoSize = true,
-                ForeColor = Color.Maroon,
+                ForeColor = Color.Black,
                 Location = new Point(10, 10),
                 Name = "lblScore",
                 Size = new Size(50, 15),
@@ -72,12 +72,12 @@ namespace Form1
                 Text = "Punktid: 0",
             };
 
-            foreach (Label sym in lblNumArrayA)
+            foreach (Label sym in lblNumArrayA) //NumbriA
             {
                 lblNumArrayA[i] = new Label
                 {
                     AutoSize = true,
-                    Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                    Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     Name = "lblNumA",
                     Size = new Size(50, 35),
                     TabIndex = 1,
@@ -87,12 +87,12 @@ namespace Form1
             }
             i = 0;
 
-            foreach (Label sym in labelSymArray)
+            foreach (Label sym in labelSymArray) //sümbol
             {
                 labelSymArray[i] = new Label
                 {
                     AutoSize = true,
-                    Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                    Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     Name = "lblSymbol",
                     Size = new Size(35, 35),
                     TabIndex = 2,
@@ -102,12 +102,12 @@ namespace Form1
             }
             i = 0;
 
-            foreach (Label sym in lblNumArrayB)
+            foreach (Label sym in lblNumArrayB)//NumbriB
             {
                 lblNumArrayB[i] = new Label
                 {
                     AutoSize = true,
-                    Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                    Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     Name = "lblNumB",
                     Size = new Size(50, 35),
                     TabIndex = 3,
@@ -122,7 +122,7 @@ namespace Form1
                 lblEqualsArray[i] = new Label
                 {
                     AutoSize = true,
-                    Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                    Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     Name = "label4",
                     Size = new Size(35, 35),
                     TabIndex = 4,
@@ -135,7 +135,7 @@ namespace Form1
             lblAnswer = new Label
             {
                 AutoSize = true,
-                Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 ForeColor = Color.Green,
                 Name = "lblAnswer",
                 Size = new Size(50, 15),
@@ -147,7 +147,7 @@ namespace Form1
             {
                 AnswerArray[i] = new TextBox
                 {
-                    Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Regular, GraphicsUnit.Point, 200),
+                    Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     Multiline = true,
                     Name = "txtAnswer",
                     Size = new Size(80, 35),
@@ -159,10 +159,10 @@ namespace Form1
 
             button1 = new Button
             {
-                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Font = new Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Location = new Point(290, 40),
                 Name = "button1",
-                Size = new Size(75, 35),
+                Size = new Size(80, 35),
                 TabIndex = 7,
                 Text = "Kontrolli",
                 UseVisualStyleBackColor = true,
@@ -171,10 +171,10 @@ namespace Form1
 
             buttonTimer = new Button
             {
-                Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Location = new Point(290, 40),
                 Name = "button1",
-                Size = new Size(75, 35),
+                Size = new Size(80, 35),
                 TabIndex = 7,
                 Text = "Alusta",
                 UseVisualStyleBackColor = true,
@@ -183,15 +183,15 @@ namespace Form1
             lblTimer = new Label
             {
                 AutoSize = true,
-                Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 200),
+                Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Name = "lblAnswer",
                 Size = new Size(50, 15),
                 TabIndex = 5,
-                Text = "00:00:00",
+                Text = "0 sec",
             };
             timer1 = new Timer
             {
-                Interval = 1000
+                Interval = 100
             };
 
             lbldate = new Label
@@ -200,15 +200,15 @@ namespace Form1
                 Font = new Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                 Name = "lblDate",
                 Location = new Point(400, 220),
-                Size = new Size(85, 29),
-                Text = "Kuupäev",
+                Size = new Size(55, 29),
+                Text = "Täna Kuupäev",
 
             };
 
 
 
             Controls.Add(tableLayoutPanel1);
-            tableLayoutPanel1.Controls.Add(lbldate);
+            tableLayoutPanel1.Controls.Add(lbldate,3,4);
             timer1.Tick += timer1_Tick;
             buttonTimer.Click += ButtonTimer_Click;
             AnswerArray[0].TextChanged += new EventHandler(CheckAnswer);
@@ -253,17 +253,17 @@ namespace Form1
             if (counter > 0)
             {
                 counter = counter - 1;
-                lblTimer.Text = counter + " sekundit";
+                lblTimer.Text = counter + " sec"; //näitab, mitu sekundit on jäänud
             }
             else
             {
-                timer1.Stop();
-                lblTimer.Text = "Rohkem aega ei ole!";
-                var vastus = MessageBox.Show("Kahjuks,aega ei ole rohkem.", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                timer1.Stop(); //aeg saab täis ja taimer peatub
+                lblTimer.Text = "Aeg on läbi!"; 
+                var vastus = MessageBox.Show("Kahjuks,аeg on läbi. \nKas sa tahad uuesti mängida?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (vastus == DialogResult.Yes)
                 {
                     this.Close();
-                    MathQuiz ns = new MathQuiz();
+                    MathQuiz ns = new MathQuiz(); //uus mäng
                     ns.Show();
                 }
                 else if (vastus == DialogResult.No)
@@ -271,7 +271,7 @@ namespace Form1
                     BackColor = Color.Red;
                     for (int i = 0; i < 999; i++)
                     {
-                        MessageBox.Show("VIIRUS!", "VIRUS", 0, MessageBoxIcon.Warning);
+                        MessageBox.Show("VIIRUS!", "VIRUS", 0, MessageBoxIcon.Warning); //virus
                     }
                 }
                 Close();
@@ -289,7 +289,7 @@ namespace Form1
             button1.Enabled = true;
 
             timer1.Start();
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music11.wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"..\..\music11.wav"); //muusika, algab taimer
             player.Play();
         }
 
@@ -299,7 +299,7 @@ namespace Form1
             {
                 if (System.Text.RegularExpressions.Regex.IsMatch(AnswerArray[i].Text, "[^0-9]"))
                 {
-                    MessageBox.Show("Ainult numbrid palun!");
+                    MessageBox.Show("Ainult numbrid!");
                     AnswerArray[i].Text = AnswerArray[i].Text.Remove(AnswerArray[i].Text.Length - 1);
                 }
             }

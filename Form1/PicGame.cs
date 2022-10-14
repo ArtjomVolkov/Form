@@ -13,14 +13,14 @@ namespace Windows_Forms_rakenduste_loomine
 {
     public partial class PicGame : Form
     {
-        Random rnd = new Random();
+        Random rnd = new Random(); //random
         TableLayoutPanel tableLayoutPanel1;
         Label esimeneClicked = null;
         Label teineClicked = null;
         Timer timer1 = new Timer { Interval = 750 };
         Timer timer2 = new Timer { Interval = 40, Enabled = true, };
         Timer timer3 = new Timer { Interval = 40, Enabled = false, };
-        List<string> icons = new List<string>()
+        List<string> icons = new List<string>() //list
         {
             "a", "a", "c", "c", "q", "q", "x", "x",
             "l", "l", "f", "f", "v", "v", "w", "w"
@@ -32,7 +32,7 @@ namespace Windows_Forms_rakenduste_loomine
             CenterToScreen(); //ekraani keskel
             timer1.Tick += timer1_Tick; //taimer
             Text = "Matching game";
-            ClientSize = new Size(455, 455);
+            ClientSize = new Size(455, 455); //vormi suurus
             tableLayoutPanel1 = new TableLayoutPanel
             {
                 BackColor = System.Drawing.Color.Cornsilk,
@@ -70,7 +70,7 @@ namespace Windows_Forms_rakenduste_loomine
                 if (iconLabel1 != null)
                 {
                     int randomNumber = rnd.Next(icons.Count);
-                    iconLabel1.Text = icons[randomNumber];
+                    iconLabel1.Text = icons[randomNumber]; //loeb lehte, kui palju andmeid
                     icons.RemoveAt(randomNumber);
                 }
                 iconLabel1.ForeColor = iconLabel1.BackColor;
@@ -133,7 +133,7 @@ namespace Windows_Forms_rakenduste_loomine
             }
             esimeneClicked = null;
             teineClicked = null;
-            timer1.Stop();
+            timer1.Stop(); //mäng lõpeb
             CheckForWinner();
         }
         private void AgainGame()
@@ -144,16 +144,16 @@ namespace Windows_Forms_rakenduste_loomine
             {
                 timer3.Start();
                 Close();
-                PicGame2 ns = new PicGame2();
+                PicGame2 ns = new PicGame2(); //avab hard režiimi
                 ns.Show();
             }
             else
             {
-                MessageBox.Show("Okey! :(");
+                MessageBox.Show("Okey! :("); //kinnitab
                 Close();
             }
         }
-        private void CheckForWinner()
+        private void CheckForWinner() //kogus kõik pildid kokku ja võitis
         {
             foreach (Control control in tableLayoutPanel1.Controls)
             {

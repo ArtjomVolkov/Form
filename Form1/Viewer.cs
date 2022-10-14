@@ -13,7 +13,7 @@ namespace Form1
         TableLayoutPanel tableLayoutPanel;
         PictureBox picturebox;
         CheckBox checkBox,checkBox1;
-        Button close, backgroundcolor, clear, showapicture, picture, colorsa,start,stop,invert;
+        Button close, backgroundcolor, clear, showapicture, picture, colorsa,start,stop,invert,rotate;
         ColorDialog colordialog;
         OpenFileDialog openfiledialog1;
         FlowLayoutPanel flowlayoutpanel,flowlayoutpanel1;
@@ -208,8 +208,17 @@ namespace Form1
                 UseVisualStyleBackColor = true,
             };
             this.invert.Click += Button1_Click;
-            
 
+            rotate = new Button
+            {
+                AutoSize = true,
+                Location = new System.Drawing.Point(250, 2),
+                Size = new System.Drawing.Size(102, 23),
+                TabIndex = 0,
+                Text = "Rotate",
+                UseVisualStyleBackColor = true,
+            };
+            rotate.Click += Rotate_Click;
             stop = new Button
             {
                 AutoSize = true,
@@ -222,7 +231,7 @@ namespace Form1
             this.stop.Click += Stop_Click;
             tableLayoutPanel.Controls.Add(stop);
             tableLayoutPanel.Controls.Add(stop, 2, 5);
-            Button[] buttonsi = { colorsa,start,stop,picture,invert };
+            Button[] buttonsi = { colorsa,start,stop,picture,invert,rotate };
             flowlayoutpanel1 = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -233,13 +242,23 @@ namespace Form1
             tableLayoutPanel.Controls.Add(flowlayoutpanel1, 2, 1);
             this.Controls.Add(tableLayoutPanel);
             tableLayoutPanel.Controls.Add(invert);
-            tableLayoutPanel.Controls.Add(invert, 2, 6);
+            tableLayoutPanel.Controls.Add(invert, 3, 2);
+            tableLayoutPanel.Controls.Add(rotate);
+            tableLayoutPanel.Controls.Add(rotate, 3, 3);
             timer1 = new Timer
             {
                 Interval = 1000,
             };
             timer1.Tick += timer1_Tick;
         }
+
+        private void Rotate_Click(object sender, EventArgs e)
+        {
+            Bitmap pic2 = new Bitmap(picturebox.Image);
+            pic2.RotateFlip(RotateFlipType.Rotate180FlipY);
+            picturebox.Image = pic2;
+        }
+
         private void Button1_Click(object sender, System.EventArgs e)
         {
             Bitmap pic = new Bitmap(picturebox.Image);
