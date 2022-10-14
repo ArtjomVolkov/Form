@@ -24,10 +24,11 @@ andmed salvestatakse Form\Form1\bin\Debug:
 2. 👨🏼‍🔧Samuti on nupul juhuslik taustavärv. <br>
 3. 👨🏼‍🔧Lisatud zoom checkbox.<br>
 4. 👨🏼‍🔧Ja lisas slaidiseansi kahe pildiga, mida saate sisse ja välja lülitada.<br>
-5. 👨🏼‍🔧Сlick on invert and the color correction of the photo changes.<br>
+5. 👨🏼‍🔧Klõpsake nuppu INVERT ja foto värviparandus muutub.<br>
+6. 👨🏼‍🔧Klõpsake nuppu ROTATE peegeldama fotot .<br>
 Vaataja pilt näeb välja selline:
 
-![pilt](https://user-images.githubusercontent.com/93324363/195337485-e590a0e1-9c76-4b60-9fce-6181bc367f79.png)
+![pilt](https://user-images.githubusercontent.com/93324363/195772783-5fd395d7-1fec-4a4d-aafc-0435b4549da4.png)
 
 <h1>Matemaatikaviktoriinis / MathQuiz</h1>
 1. 👨🏼‍🔧Matemaatikaviktoriinis tahan lisada, millal on muusika lisamise aeg täis, et inimene kuuleks, et aeg on möödas.<br>
